@@ -2,6 +2,23 @@
   font-family: 'Fira Sans', sans-serif;
   color: white;
 }
+a{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  position: relative;
+  height: 300px;
+  width: 85%;
+  left: 7.5%;
+  background-color: dimgrey;
+  top: 2%;
+  border-radius: 3vw;
+  margin-bottom: 2%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 body{
   background-color: grey;
   margin: 0;
@@ -33,14 +50,8 @@ h1{
 }
 .room{
   position: relative;
-  height: 300px;
-  width: 85%;
-  left: 7.5%;
-  background-color: dimgrey;
-  top: 2%;
-  border-radius: 3vw;
-  margin-bottom: 2%;
-  border: 2px solid black;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,8 +59,9 @@ h1{
 .room p{
   font-size: 6vw;
 }
-
 #addRoom{
+  margin-top: 1%;
   position: relative;
-  font-size: 10vw;
+  font-size: 12vw;
+  text-align: center;
 }
