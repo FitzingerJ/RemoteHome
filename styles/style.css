@@ -2,7 +2,7 @@
   font-family: 'Fira Sans', sans-serif;
   color: white;
 }
-a{
+.content a{
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -88,5 +88,55 @@ h1{
   font-size: 5vw;
   margin-top: 1%;
   margin-left: 2%;
+  padding: 0;
+}
+.bottom{
+  position: fixed;
+  bottom: 0;
+  height: 150px;
+  width: 100%;
+  background-color: grey;
+  border-top: 2px solid dimgrey;
+  font-size: 6vw;
+  z-index: 1000;
+}
+.bottom a{
+  position: relative;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  text-decoration: none;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+.back{
+  position: relative;
+  height: 100%;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -2px 0px 0px 0px dimgrey;
+}
+.addBottom{
+  position: relative;
+  height: 100%;
+  width: 50%;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -2px 0px 0px 0px dimgrey;
+}
+.bottom p{
+  margin: 0;
   padding: 0;
 }
