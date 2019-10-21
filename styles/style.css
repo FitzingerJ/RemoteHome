@@ -65,3 +65,28 @@ h1{
   font-size: 12vw;
   text-align: center;
 }
+#addSmart{
+  margin-top: 1%;
+  position: relative;
+  font-size: 12vw;
+  text-align: center;
+}
+.smart{
+  text-decoration: none;
+  position: relative;
+  height: 400px;
+  width: 85%;
+  left: 7.5%;
+  background-color: dimgrey;
+  top: 2%;
+  border-radius: 3vw;
+  margin-bottom: 2%;
+  border: 2px solid black;
+  display: flex;
+}
+.smart p{
+  font-size: 5vw;
+  margin-top: 1%;
+  margin-left: 2%;
+  padding: 0;
+}
