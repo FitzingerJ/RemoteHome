@@ -18,7 +18,7 @@
         <div id="addSmart">+</div>
     </div>
     <div class="bottom">
-      <a href="../index.html">
+      <a href="../index.php">
         <div class="back">
           <p>←</p>
         </div>

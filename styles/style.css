@@ -20,7 +20,7 @@
   align-items: center;
 }
 body{
-  background-color: grey;
+  background: rgba(0, 0, 0, 0.3);
   margin: 0;
   padding: 0;
 }
@@ -167,4 +167,48 @@ div#load_screen > div#loading{
 	width:120px;
 	height:24px;
 	margin: 300px auto;
+}
+.newRoom{
+  z-index: 10000;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#newRoomBox{
+  position: relative;
+  width: 90%;
+  height: 18%;
+  background-color: rgba(0, 0, 0, 1);
+  border: 1px solid white;
+  border-radius: 3vw;
+}
+#newRoomBox h1{
+  text-align: center;
+}
+#newRoomBox form input{
+  position: relative;
+  width: 92%;
+  height: 7vw;
+  color: black;
+  font-size: 6vw;
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+}
+#newRoomBox form #createButton{
+  position: relative;
+  width: 40%;
+  border-radius: 1vw;
+  border: 1px solid white;
+  background-color: white;
+  height: 10vw;
+  color: black;
+  font-size: 6vw;
+  text-align: center;
+  display: table;
+  margin: 0 auto;
 }
