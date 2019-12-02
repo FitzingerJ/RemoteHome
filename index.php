@@ -31,13 +31,10 @@
       <h1>RemoteHome<h1>
     </div>
     <div class="content">
-      <a href="pages/wohnzimmer.php"><div class="room"><p>Wohnzimmer</p></div></a>
-      <a href="pages/kueche.php"><div class="room"><p>Küche</p></div></a>
-      <a href="pages/bad.php"><div class="room"><p>Bad</p></div></a>
-      <a href="pages/mein_zimmer.php"><div class="room"><p>Mein Zimmer</p></div></a>
+
       <div id="addRoom" onclick="newRoom()">+</div>
     </div>
-    <div class="newRoom">
+    <div class="newRoom" onclick="hideBox()">
         <div id="newRoomBox">
           <h1>New Room</h1>
           <form id="newRoomForm" autocomplete="off">
@@ -46,5 +43,20 @@
           </form>
         </div>
     </div>
+    <?php
+    $req = $_POST["req"];
+    $datei = fopen("rooms.csv", "r");
+
+    if ($req === 'dataRequest') {
+      $file = fopen("rooms.csv", "r") or die("Unable to open file!");
+      $content = [];
+
+      while (!feof($file)) {
+        $content[] = fgets($file);
+      }
+
+      echo json_encode($content);
+    }
+    ?>
   </body>
 </html>
