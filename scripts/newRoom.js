@@ -18,7 +18,19 @@ window.addEventListener("load", () => {
 function newRoom(){
   let element = document.getElementsByClassName('newRoom')[0];
   element.setAttribute('style', 'display:flex !important');
+  document.getElementById('roomNameInput').focus();
 }
+
+function tableInputKeyPress(e){
+  e=e||window.event;
+  var key = e.keyCode;
+  if(key==13)
+  {
+     createRoom();
+     return false;
+  }
+}
+
 function createRoom(){
   let roomName = document.getElementById('roomNameInput').value;
   document.getElementById('roomNameInput').value = "";
@@ -29,10 +41,11 @@ function createRoom(){
     var helper = document.createElement('div');
     helper.innerHTML = "<a><div class='room'><p>" + roomName + "</p></div></a>";
     while (helper.firstChild) {
-    parent.insertBefore(helper.firstChild, add);
-}
+      parent.insertBefore(helper.firstChild, add);
+    }
   }
 }
+
 function hideBox(){
   var target = event.target || event.srcElement;
 

@@ -38,7 +38,7 @@
         <div id="newRoomBox">
           <h1>New Room</h1>
           <form id="newRoomForm" autocomplete="off">
-            <input id="roomNameInput" type="text" name="roomName" autofocus placeholder="Room Name"><br>
+            <input id="roomNameInput" onkeypress="return tableInputKeyPress(event)" type="text" name="roomName" autofocus placeholder="Room Name"><br>
             <input id="createButton" type="button" onclick="createRoom()" value="Create">
           </form>
         </div>
