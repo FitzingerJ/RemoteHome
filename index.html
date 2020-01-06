@@ -25,13 +25,12 @@
     <script src="scripts/loading.js" type="text/javascript"></script>
     <script src="scripts/newRoom.js" type="text/javascript"></script>
   </head>
-  <body>
+  <body onload="getAJAX()">
     <div id="load_screen"><div id="loading">loading document</div></div>
     <div id="header">
       <h1>RemoteHome<h1>
     </div>
     <div class="content">
-
       <div id="addRoom" onclick="newRoom()">+</div>
     </div>
     <div class="newRoom" onclick="hideBox()">
@@ -43,20 +42,5 @@
           </form>
         </div>
     </div>
-    <?php
-    $req = $_POST["req"];
-    $datei = fopen("rooms.csv", "r");
-
-    if ($req === 'dataRequest') {
-      $file = fopen("rooms.csv", "r") or die("Unable to open file!");
-      $content = [];
-
-      while (!feof($file)) {
-        $content[] = fgets($file);
-      }
-
-      echo json_encode($content);
-    }
-    ?>
   </body>
 </html>
