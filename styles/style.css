@@ -57,11 +57,17 @@ h1{
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+
 }
 .room p{
   font-size: 6vw;
+}
+#removeButton{
+  position: relative;
+  font-size: 9vw;
+  cursor: pointer;
+  left: 92%;
+  top: -35%;
 }
 #addRoom{
   margin-top: 1%;

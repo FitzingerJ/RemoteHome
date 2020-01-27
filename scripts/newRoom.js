@@ -1,3 +1,10 @@
+let roomCount = 1;
+
+//Start the onload functions
+function start(){
+  getAJAX();
+}
+
 //AJAX Read CSV
 let myRequest;
 let roomName;
@@ -14,8 +21,19 @@ function checkData(){
       for(i = 0; i < line.length; i++){
         loadRooms(line[i]);
       }
+      loadStorage();
   }
 }
+
+//Load Rooms from Localstorage
+function loadStorage(){
+  let roomCount = localStorage.getItem("roomCount");
+  for (var i = 1 + 4; i <= roomCount; i++) {
+    loadRooms(localStorage.getItem(""+i));
+  }
+  roomCount = 1;
+}
+
 
 //Add Room Button
 function newRoom(){
@@ -33,7 +51,10 @@ function createRoom(){
       var add = document.getElementById("addRoom");
       var parent = add.parentNode;
       var helper = document.createElement('div');
-      helper.innerHTML = "<a><div class='room'><p>" + roomName + "</p></div></a>";
+      helper.innerHTML = "<a id='" + roomCount + "'><div id='" + roomCount + "' class='room'><h3 onclick='removeRoom(" + roomCount + ")' id='removeButton'>x</h3><p>" + roomName + "</p></div></a>";
+      localStorage.setItem("roomCount", roomCount);
+      localStorage.setItem(""+roomCount, roomName);
+      roomCount++;
       while (helper.firstChild) {
       parent.insertBefore(helper.firstChild, add);
     }
@@ -67,7 +88,8 @@ function loadRooms(roomName){
       var add = document.getElementById("addRoom");
       var parent = add.parentNode;
       var helper = document.createElement('div');
-      helper.innerHTML = "<a><div class='room'><p>" + roomName + "</p></div></a>";
+      helper.innerHTML = "<a id='" + roomCount + "'><div id='" + roomCount + "' class='room'><h3 onclick='removeRoom(" + roomCount + ")' id='removeButton'>x</h3><p>" + roomName + "</p></div></a>";
+      roomCount++;
       while (helper.firstChild) {
       parent.insertBefore(helper.firstChild, add);
     }
