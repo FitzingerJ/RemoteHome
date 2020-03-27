@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new User</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <h1>create a new user</h1>
+
+    <form method="post" action="createUser.php">
+        <div class='row'>
+            <span>New Username: </span>
+            <input name="username" type="text">
+        </div>
+
+        <div class='row'>
+            <span>Password: </span>
+            <input name="password" type="password">
+        </div>
+
+        <div class='row'>
+            <span>Retype password: </span>
+            <input name="password_2" type="password">
+        </div>
+
+        <input type="submit" name="submit" class='button' value="Create new user">
+
+        <a href="login.html" class="button"> <span>Log in</span> </a>
+    </form>
+</body>
+</html>
