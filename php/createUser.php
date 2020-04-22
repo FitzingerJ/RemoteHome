@@ -1,6 +1,6 @@
 <?php
 $_db_host = "localhost";
-$_db_database = "web";
+$_db_database = "remotehome";
 $_db_username = "web";
 $_db_password = "web";
 
@@ -16,21 +16,21 @@ if (!empty($_POST['submit'])) {
     $_password = $conn->real_escape_string($_POST['password']);
 
     if (strcmp($_password, $conn->real_escape_string($_POST['password_2'])) != 0) {
-        include("createUser.html");
+        include("../pages/createUser.html");
         exit;
     }
 
     $_password = "saver". $_password;
 
-    $insertStatement = "INSERT INTO login_username (username, password, user_deleted, last_login) VALUES ('$_username', md5('$_password'), 0, NOW())";
+    $insertStatement = "INSERT INTO user (Name, Password) VALUES ('$_username', md5('$_password'))";
     if ($res = $conn->query($insertStatement)) {
-        include("login.html");
+        include("../pages/login.html");
     } else {
         // No insertion. User could not be added. Maybe user $_username already exists.
-        include("createUser.html");
+        include("../pages/createUser.html");
     }
 } else {
-    include("createUser.html");
+    include("../pages/createUser.html");
 }
 
 $conn->close();
