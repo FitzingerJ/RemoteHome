@@ -44,6 +44,29 @@ h1{
   z-index: 1000;
   background-color: grey;
 }
+#header a{
+  text-decoration: none !important;
+}
+#login{
+  height: 140px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1001;
+}
+#login h3{
+  font-size: 2vh;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+#login a{
+  text-decoration: none;
+  z-index: 2000;
+  margin-right: 3%;
+}
 .content{
   position: absolute;
   top: 140px;
@@ -247,4 +270,83 @@ div#load_screen > div#loading{
   text-align: center;
   display: table;
   margin: 0 auto;
+}
+#loginContent{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+#loginContent h1{
+  position: absolute;
+  top: 20%;
+}
+#loginContent form{
+  position: absolute;
+  font-size: 6vw;
+}
+#loginContent input{
+  color: black;
+  font-size: 6vw;
+  border-radius: 2vh;
+  box-shadow: 0 0 0pt 3pt grey;
+  border: 0px solid white !important;
+  outline: none;
+  padding-left: 2%;
+}
+#loginContent input:focus{
+  box-shadow: 0 0 0pt 3pt orange;
+  border: 0px solid white !important;
+  outline: none;
+}
+#loginContent form .row span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+#loginContent form .row{
+  margin-bottom: 4%;
+}
+#loginContent input .button{
+  border-radius: 1vh;
+  background-color: white;
+}
+#portalContent{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+#SignInButton{
+  position: relative;
+  height: 10%;
+  width: 30%;
+  color: black;
+  font-size: 6vw;
+  border-radius: 2vh;
+  box-shadow: 0 0 0pt 3pt grey;
+  border: 0px solid white !important;
+  outline: none;
+}
+#SignUpButton{
+  position: relative;
+  height: 10%;
+  width: 30%;
+  color: black;
+  font-size: 6vw;
+  border-radius: 2vh;
+  box-shadow: 0 0 0pt 3pt grey;
+  border: 0px solid white !important;
+  outline: none;
+}
+#formButton{
+  border-radius: 1vh !important;
+  box-shadow: 0 0 0pt 3pt grey;
+}
+.loginButton{
+  position: relative;
+  left: 40%;
 }

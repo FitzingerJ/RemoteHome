@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Create new User</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-    <h1>login</h1>
+  <div id="header">
+    <a href="../index.html"><h1>RemoteHome<h1></a>
+  </div>
+  <div id="loginContent">
+    <h1 id="loginHeader">login</h1>
 
     <form method="post" action="../php/login.php">
         <div class='row'>
@@ -19,7 +23,8 @@
             <input name="password" type="password">
         </div>
 
-        <input type="submit" name="submit" class='button' value="login">
+        <input id="formButton" class="loginButton" type="submit" name="submit" class='button' value="login">
     </form>
+  </div>
 </body>
 </html>
