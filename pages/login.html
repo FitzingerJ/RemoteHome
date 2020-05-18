@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Create new User</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/login.js"></script>
 </head>
 <body>
   <div id="header">
@@ -12,18 +13,18 @@
   <div id="loginContent">
     <h1 id="loginHeader">login</h1>
 
-    <form method="post" action="../php/login.php">
+    <form>
         <div class='row'>
             <span>Username: </span>
-            <input name="username" type="text">
+            <input id="username_field" name="username" type="text">
         </div>
 
         <div class='row'>
             <span>Password: </span>
-            <input name="password" type="password">
+            <input id="password_field" name="password" type="password">
         </div>
 
-        <input id="formButton" class="loginButton" type="submit" name="submit" class='button' value="login">
+        <input id="formButton" class="loginButton" onclick="login()" class='button' value="login">
     </form>
   </div>
 </body>

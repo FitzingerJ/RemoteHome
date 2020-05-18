@@ -1,40 +1,5 @@
 let roomCount = 1;
 
-//Start the onload functions
-function start(){
-  getAJAX();
-}
-
-//AJAX Read CSV
-let myRequest;
-let roomName;
-
-function getAJAX(){
-  myRequest = new XMLHttpRequest();
-  myRequest.open("GET", "php/index.php");
-  myRequest.onreadystatechange = checkData;
-  myRequest.send(null);
-}
-function checkData(){
-  if (myRequest.readyState == 4 && myRequest.status == 200) {
-      let line = myRequest.responseText.split(';');
-      for(i = 0; i < line.length; i++){
-        loadRooms(line[i]);
-      }
-      loadStorage();
-  }
-}
-
-//Load Rooms from Localstorage
-function loadStorage(){
-  let roomCount = localStorage.getItem("roomCount");
-  for (var i = 1 + 4; i <= roomCount; i++) {
-    loadRooms(localStorage.getItem(""+i));
-  }
-  roomCount = 1;
-}
-
-
 //Add Room Button
 function newRoom(){
   let element = document.getElementsByClassName('newRoom')[0];
@@ -55,6 +20,14 @@ function createRoom(){
       localStorage.setItem("roomCount", roomCount);
       localStorage.setItem(""+roomCount, roomName);
       roomCount++;
+      let room_id
+
+      myRequest = new XMLHttpRequest();
+      myRequest.open("GET", "../php/login.php?username=" + username
+                    + "&password=" + password);
+      myRequest.onreadystatechange = checkData;
+      myRequest.send(null);
+      
       while (helper.firstChild) {
         parent.insertBefore(helper.firstChild, add);
       }

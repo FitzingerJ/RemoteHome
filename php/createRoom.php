@@ -12,31 +12,29 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$username = $_GET["username"];
-$password = $_GET["password"];
+error_reporting(E_ALL ^ E_NOTICE);
+$roomName = $_GET["username"];
 
-$stmt = $conn->prepare("SELECT * FROM `user` WHERE `user_name` = ? AND `user_password` = md5(?)");
+$stmt = $conn->prepare("INSERT INTO room (room_name, light, window, heater, speaker) VALUES ('$roomName', '0', '0', '0', '0')");
 $stmt->bind_param("ss", $username, $password);
 $stmt->execute();
 
 $result = $stmt->get_result();
-
-if(mysqli_stmt_num_rows($stmt) > 0){
-  echo "true";
-} else {
-  echo "false";
+while ($row = $result->fetch_array(MYSQLI_NUM)) {
+    foreach ($row as $r){
+        print "$r;";
+    }
 }
-/*
+
 if ($_res = $stmt->get_result()) {
     if ($_res->num_rows > 0) {
 
-
+        print "true";
 
     } else {
-
+        echo "false";
     }
 }
-*/
 
 $conn->close();
 
