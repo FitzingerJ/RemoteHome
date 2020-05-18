@@ -10,9 +10,10 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-$email = $_POST["email"];
-$subject = $_POST["subject"];
-$message = $_POST["message"];
+$email = $_GET["email"];
+$password = $_GET["password"];
+$subject = $_GET["subject"];
+$message = $_GET["message"];
 
 require '../vendor/autoload.php';
 
@@ -44,19 +45,19 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->SMTPAuth = true;
 
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = fitzingerschule@gmail.com;
+$mail->Username = $email;
 
 //Password to use for SMTP authentication
-$mail->Password = ;
+$mail->Password = $password;
 
 //Set who the message is to be sent from
-$mail->setFrom('fitzingerschule@gmail.com', 'Jakob Fitzinger');
+$mail->setFrom($email, '');
 
 //Set an alternative reply-to address
-$mail->addReplyTo('fitzingerschule@gmail.com', 'Jakob Fitzinger');
+$mail->addReplyTo($email, '');
 
 //Set who the message is to be sent to
-$mail->addAddress($email);
+$mail->addAddress("remoteHomeTest@gmail.com");
 
 //Set the subject line
 $mail->Subject = $subject;
@@ -67,9 +68,6 @@ $mail->msgHTML($message);
 
 //Replace the plain text body with one created manually
 $mail->AltBody = 'Test';
-
-//Attach an image file
-$mail->addAttachment('images/phpmailer_mini.png');
 
 //send the message, check for errors
 if (!$mail->send()) {

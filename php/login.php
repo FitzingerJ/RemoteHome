@@ -17,11 +17,11 @@ if ((isset($_POST["submit"])) && !empty($_POST["submit"])) {
     $_password = $conn->real_escape_string($_POST["password"]);
 
     $_password = "saver" . $_password;
-    $_sql = "SELECT * FROM user WHERE Name='$_username' AND Password=md5('$_password')";
+    $_sql = "SELECT * FROM user WHERE user_name='$_username' AND user_password=md5('$_password')";
 
     if ($_res = $conn->query($_sql)) {
         if($_res->num_rows > 0){
-          echo "Success";
+          print "loggedIn";
         }
     } else {
         include("../pages/login.html");

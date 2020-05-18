@@ -2,18 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact</title>
-    <link rel="stylesheet" href="./style/style.css">
-    <script src="./script/script.js"></script>
+    <title>Create new User</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/script.js"></script>
 </head>
 <body>
-  <div id="content">
-    <input id="email" type="text" placeholder="email address" >
-    <input id="subject" type="text" placeholder="subject" >
-    <textarea id="message" placeholder="message..."></textarea>
-
-    <button id="sendButton" onclick="send()">send</button>
-    <p id="error"></p>
+  <div id="header">
+    <a href="../index.html"><h1>RemoteHome<h1></a>
   </div>
+  <div id="login">
+    <a href="../pages/createUser.html"><h3>login</h3></a>
+  </div>
+  <form id="content">
+    <input autocomplete="email" id="email" type="text" placeholder="email address" >
+    <input autocomplete="current-password" id="password" type="password" placeholder="password" >
+    <input autocomplete="off" id="subject" type="text" placeholder="subject" >
+    <br><textarea id="message" placeholder="message..."></textarea>
+
+    <br><button id="sendButton" onclick="send()">send</button>
+    <p id="error"></p>
+  </form>
 </body>
 </html>
