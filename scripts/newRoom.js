@@ -46,7 +46,7 @@ function newRoom(){
 function createRoom(){
   roomName = document.getElementById('roomNameInput').value;
   document.getElementById('roomNameInput').value = "";
-  if(roomName != ""){
+  if(roomName != "" && roomName.length < 14){
       document.getElementsByClassName('newRoom')[0].style.display = "none";
       var add = document.getElementById("addRoom");
       var parent = add.parentNode;
@@ -56,8 +56,16 @@ function createRoom(){
       localStorage.setItem(""+roomCount, roomName);
       roomCount++;
       while (helper.firstChild) {
-      parent.insertBefore(helper.firstChild, add);
-    }
+        parent.insertBefore(helper.firstChild, add);
+      }
+      document.getElementById("newRoomHeader").innerHTML = "New Room"
+      document.getElementById("newRoomHeader").style.color = "white";
+  } else if(roomName.length > 14){
+    document.getElementById("newRoomHeader").innerHTML = "Name has to be < 14 Letters"
+    document.getElementById("newRoomHeader").style.color = "red";
+  } else if(roomName == ""){
+    document.getElementById("newRoomHeader").innerHTML = "Name has to be at least 1 Letter"
+    document.getElementById("newRoomHeader").style.color = "red";
   }
 }
 
