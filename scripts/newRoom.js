@@ -1,4 +1,11 @@
-let roomCount = 1;
+if(localStorage.getItem("roomCount") > 0){
+  var roomCount = localStorage.getItem("roomCount");
+} else{
+  var roomCount = 0;
+  localStorage.setItem("roomCount", roomCount);
+}
+
+
 
 //Add Room Button
 function newRoom(){
@@ -17,17 +24,16 @@ function createRoom(){
       var parent = add.parentNode;
       var helper = document.createElement('div');
       helper.innerHTML = "<a id='" + roomCount + "'><div id='" + roomCount + "' class='room'><h3 onclick='removeRoom(" + roomCount + ")' id='removeButton'>x</h3><p>" + roomName + "</p><div id='imgContainer'><img onclick='lightControl(" + roomCount + ")' id='lightIcon" + roomCount + "' src='images/LightIconOff.png'><img onclick='windowControl(" + roomCount + ")' id='windowIcon" + roomCount + "' src='images/WindowIconOpen.png'><img onclick='heaterControl(" + roomCount + ")' id='heaterIcon" + roomCount + "' src='images/HeaterIconOff.png'><img onclick='speakerControl(" + roomCount + ")' id='speakerIcon" + roomCount + "' src='images/SpeakerIconOff.png'></div></div></a>";
-      localStorage.setItem("roomCount", roomCount);
-      localStorage.setItem(""+roomCount, roomName);
+      localStorage.setItem("room"+localStorage.getItem("roomCount"), sessionStorage.getItem("currentUsername")+";"+roomName);
       roomCount++;
-      let room_id
+      localStorage.setItem("roomCount", roomCount);
 
       myRequest = new XMLHttpRequest();
       myRequest.open("GET", "../php/login.php?username=" + username
                     + "&password=" + password);
       myRequest.onreadystatechange = checkData;
       myRequest.send(null);
-      
+
       while (helper.firstChild) {
         parent.insertBefore(helper.firstChild, add);
       }
@@ -109,16 +115,20 @@ function speakerControl(id){
 }
 
 //Load Your Rooms
-function loadRooms(roomName){
-  if(roomName != ""){
+function loadRooms(){
+  let roomCountAll = localStorage.getItem("roomCount");
+  for (var i = 0; i <= roomCountAll; i++) {
+    let roomSplit = localStorage.getItem(`room${i}`).split(";");
+    if(roomSplit[0] == sessionStorage.getItem("currentUsername")){
       document.getElementsByClassName('newRoom')[0].style.display = "none";
       var add = document.getElementById("addRoom");
       var parent = add.parentNode;
       var helper = document.createElement('div');
-      helper.innerHTML = "<a id='" + roomCount + "'><div id='" + roomCount + "' class='room'><h3 onclick='removeRoom(" + roomCount + ")' id='removeButton'>x</h3><p>" + roomName + "</p><div id='imgContainer'><img onclick='lightControl(" + roomCount + ")' id='lightIcon" + roomCount + "' src='images/LightIconOff.png'><img onclick='windowControl(" + roomCount + ")' id='windowIcon" + roomCount + "' src='images/WindowIconOpen.png'><img onclick='heaterControl(" + roomCount + ")' id='heaterIcon" + roomCount + "' src='images/HeaterIconOff.png'><img onclick='speakerControl(" + roomCount + ")' id='speakerIcon" + roomCount + "' src='images/SpeakerIconOff.png'></div></div></a>";
+      helper.innerHTML = "<a id='" + roomCount + "'><div id='" + roomCount + "' class='room'><h3 onclick='removeRoom(" + roomCount + ")' id='removeButton'>x</h3><p>" + roomSplit[1] + "</p><div id='imgContainer'><img onclick='lightControl(" + roomCount + ")' id='lightIcon" + roomCount + "' src='images/LightIconOff.png'><img onclick='windowControl(" + roomCount + ")' id='windowIcon" + roomCount + "' src='images/WindowIconOpen.png'><img onclick='heaterControl(" + roomCount + ")' id='heaterIcon" + roomCount + "' src='images/HeaterIconOff.png'><img onclick='speakerControl(" + roomCount + ")' id='speakerIcon" + roomCount + "' src='images/SpeakerIconOff.png'></div></div></a>";
       roomCount++;
       while (helper.firstChild) {
-      parent.insertBefore(helper.firstChild, add);
+        parent.insertBefore(helper.firstChild, add);
+      }
     }
   }
 }

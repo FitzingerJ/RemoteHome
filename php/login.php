@@ -21,7 +21,7 @@ $stmt->execute();
 
 $result = $stmt->get_result();
 
-if(mysqli_stmt_num_rows($stmt) > 0){
+if(mysqli_stmt_num_rows($stmt) == 0){
   echo "true";
 } else {
   echo "false";

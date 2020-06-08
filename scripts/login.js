@@ -18,7 +18,7 @@ function checkData(){
    var split = myRequest.responseText.split(";");
    var loggedIn = split[0];
    console.log(loggedIn);
-   loggedInfos = loggedIn.split(";");
+   loggedInfos = loggedIn;
    console.log(loggedInfos[0]);
  if (loggedInfos.length > 0) {
    console.log(loggedIn);
@@ -26,7 +26,6 @@ function checkData(){
    sessionStorage.setItem("loggedIn", true);
    sessionStorage.setItem("currentUsername", username);
    window.location.assign("http://localhost/uebungen/Webprojekt/Remotehome/index.html");
-   alert("Logged In successfully!");
 
    document.getElementById("loginText").innerHTML = sessionStorage.getItem(currentUsername);
 
@@ -41,10 +40,10 @@ function checkData(){
 
 let roomRequest = new XMLHttpRequest();
 function loggedIn(){
-  if(sessionStorage.getItem(loggedIn) == true){
+  if(sessionStorage.getItem("loggedIn") == "true"){
   document.getElementById("loginText").innerHTML = sessionStorage.getItem("currentUsername");
-  user_id = sessionStorage.getItem(userId);
-
+  user_id = sessionStorage.getItem("userId");
+  loadRooms();
 
   myRequest.open("GET", "../php/getRoom.php?user_id=" + user_id);
   myRequest.onreadystatechange = checkData2;
@@ -57,7 +56,7 @@ function checkData2(){
    var split = roomRequest.responseText.split(";");
    var loggedIn = split[0];
    console.log(loggedIn);
-   loggedInfos = loggedIn.split(";");
+   loggedInfos = loggedIn;
    console.log(loggedInfos[0]);
  if (loggedInfos.length > 0) {
    console.log(loggedIn);
